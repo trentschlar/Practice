@@ -1,0 +1,38 @@
+# check if pay checks are matching up with salary 
+# I wrote this after I was paid less than I should have been my first week at a new job... 
+# Questions
+
+print "Are you paid bi-weekly?"
+pay_period = raw_input()
+
+if pay_period == 'Yes' or pay_period =='yes':
+	print "How much money do you make in a two weeks?",
+	week_wage = raw_input()
+	print "How much do you make in a year?"
+	year_wage = raw_input()
+	print "Do they divide up as 26?"
+	x = int(week_wage)
+	y = int(year_wage)
+	z = y/x
+	if z == 26:
+		print 'Yes'
+	else: 
+		print 'No, check your pay.'
+		
+elif pay_period == 'No' or pay_period =='no':
+	print "Are you paid monthly?"
+	monthly = raw_input()
+	
+	if monthly == 'Yes' or monthly =='yes':
+		print "How much money do you make in a month?",
+		month_wage = raw_input()
+		print "How much do you make in a year?"
+		year_wage = raw_input()
+		print "Do they divide up as 12?"
+		x = int(month_wage)
+		y = int(year_wage)
+		z = y/x
+		if z == 12:
+			print 'Yes'
+		else: 
+			print 'No, check your pay.'
