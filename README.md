@@ -1,2 +1,2 @@
 # Practice
-These are scripts that I have written to practice writing.  
+This was a class project from 2013. 
