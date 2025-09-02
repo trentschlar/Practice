@@ -1,0 +1,35 @@
+import arcpy
+import os
+
+# Path to your table
+table_path = r""
+
+# List of fields to check
+fields = [
+    ""
+]
+
+# Output dictionary to hold results
+results = []
+
+# Loop through each field and count unique non-null values
+for field in fields:
+    values = set()
+    with arcpy.da.SearchCursor(table_path, [field]) as cursor:
+        for row in cursor:
+            val = row[0]
+            if val not in [None, ""]:  # Ignore nulls and blanks
+                values.add(val)
+
+    unique_count = len(values)
+    # Sort values for readability if small
+    value_list = sorted(values) if unique_count <= 10 else None
+    results.append((field, unique_count, value_list))
+
+# Print results in ArcGIS Pro Python window
+print("Unique value counts by field:\n")
+for field, count, value_list in results:
+    if value_list is None:
+        print(f"{field}: {count}")
+    else:
+        print(f"{field}: {count} unique values → {value_list}")
